@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Image,
   Text,
@@ -11,6 +11,12 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 
 export default function MealCard({ meal, navigateToDetail }) {
+  const [liked, setLiked] = useState(false);
+
+  const handleLike = () => {
+    setLiked(!liked);
+    console.log(liked);
+  };
   return (
     <Pressable onPress={navigateToDetail}>
       <View
@@ -57,18 +63,23 @@ export default function MealCard({ meal, navigateToDetail }) {
             4.8(1k + Review)
           </Text>
         </View>
-        <TouchableOpacity style={{ position: "absolute", top: 10, right: 10 }}>
-          <View
-            style={{
-              backgroundColor: "#fff",
-              padding: 10,
-              borderRadius: 50,
-              elevation: 5,
-            }}
-          >
-            <Icon name="heart" size={25} color="#E0E0E0" />
-          </View>
-        </TouchableOpacity>
+        <View
+          style={{
+            position: "absolute",
+            top: 10,
+            right: 10,
+            backgroundColor: "#fff",
+            padding: 8,
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: 50,
+            elevation: 5,
+          }}
+        >
+          <TouchableOpacity style={{}} onPress={handleLike}>
+            <Icon name="heart" size={30} color={liked ? "red" : "#E0E0E0"} />
+          </TouchableOpacity>
+        </View>
         <View
           style={{
             position: "absolute",
