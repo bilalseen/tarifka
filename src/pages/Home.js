@@ -1,20 +1,21 @@
-import React, { useState } from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  ActivityIndicator,
-  FlatList,
-} from "react-native";
+import React from "react";
+import { View, Text, ActivityIndicator, FlatList } from "react-native";
 import CategoryCard from "../components/CategoryCard";
 import { useFetch } from "../hooks/useFetch/useFetch";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import AntDesignIcons from "react-native-vector-icons/AntDesign";
+import RandomMealCard from "../components/RandomMealCard";
 
 export default function Home({ navigation }) {
   const { data, error, loading } = useFetch(
     "https://www.themealdb.com/api/json/v1/1/categories.php"
   );
+
+  const {
+    data: randomMealData,
+    loading: randomMealLoading,
+    error: randomMealError,
+  } = useFetch("https://www.themealdb.com/api/json/v1/1/random.php");
 
   const handleMealList = (categoryName) => {
     navigation.navigate("MealList", { categoryName });
@@ -22,27 +23,43 @@ export default function Home({ navigation }) {
 
   if (loading) {
     return (
-      <View style={[styles.container, styles.loading]}>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "#FDFDFD",
+          alignItems: "center",
+          justifyContent: "center",
+          paddingTop: 20,
+        }}
+      >
         <ActivityIndicator size="large" color="#0000ff" />
       </View>
     );
   }
 
   return (
-    <View style={styles.container}>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: "#FDFDFD",
+        alignItems: "center",
+        justifyContent: "center",
+        paddingTop: 100,
+        gap: 20,
+      }}
+    >
       <View
         style={{
           width: "100%",
           flexDirection: "row",
-          marginTop: 100,
           alignItems: "center",
           justifyContent: "space-between",
-          backgroundColor: "pink",
+          paddingHorizontal: 20,
         }}
       >
         <Text
           style={{
-            fontSize: 20,
+            fontSize: 26,
             fontWeight: "bold",
             color: "#545F5A",
             maxWidth: "60%",
@@ -62,7 +79,13 @@ export default function Home({ navigation }) {
           <AntDesignIcons name="search1" size={30} color="#000" />
         </View>
       </View>
-      <View style={styles.categoryContainer}>
+      <View
+        style={{
+          backgroundColor: "pink",
+          height: 200,
+          marginTop: 20,
+        }}
+      >
         <FlatList
           data={data.categories}
           renderItem={({ item }) => (
@@ -75,23 +98,13 @@ export default function Home({ navigation }) {
           horizontal={true}
         />
       </View>
+      <View>
+        {randomMealLoading ? (
+          <ActivityIndicator size="large" color="#0000ff" />
+        ) : (
+          <RandomMealCard meal={randomMealData.meals[0]} />
+        )}
+      </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#FDFDFD",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingTop: 20,
-  },
-  loading: {
-    justifyContent: "center",
-  },
-  categoryContainer: {
-    flex: 1,
-    marginTop: 20,
-  },
-});
