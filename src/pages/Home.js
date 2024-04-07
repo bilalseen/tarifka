@@ -85,9 +85,8 @@ export default function Home({ navigation }) {
       </View>
       <View
         style={{
-          backgroundColor: "pink",
           height: 200,
-          marginTop: 20,
+          paddingBottom: 10,
         }}
       >
         <FlatList
@@ -100,6 +99,7 @@ export default function Home({ navigation }) {
           )}
           keyExtractor={(item) => item.idCategory.toString()} // Ensure key is a string
           horizontal={true}
+          showsHorizontalScrollIndicator={false}
         />
       </View>
       <View>
