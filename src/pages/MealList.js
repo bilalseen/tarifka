@@ -1,5 +1,5 @@
-import { View, Text, FlatList, StyleSheet } from "react-native";
-import React, { useEffect } from "react";
+import { View, Text, FlatList } from "react-native";
+import React from "react";
 import { useFetch } from "../hooks/useFetch/useFetch";
 import MealCard from "../components/MealCard";
 
@@ -22,7 +22,14 @@ const MealList = ({ route, navigation }) => {
   }
 
   return (
-    <View style={styles.container}>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: "#fff",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <FlatList
         data={data.meals}
         renderItem={({ item }) => (
@@ -32,18 +39,10 @@ const MealList = ({ route, navigation }) => {
           />
         )}
         keyExtractor={(item) => item.idMeal.toString()}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#FFA500",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
 
 export default MealList;
