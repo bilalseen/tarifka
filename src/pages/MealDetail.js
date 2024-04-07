@@ -31,6 +31,13 @@ export default function MealDetail({ route }) {
     `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`
   );
 
+  const [liked, setLiked] = useState(false);
+
+  const handleLike = () => {
+    setLiked(!liked);
+    console.log(liked);
+  };
+
   useEffect(() => {
     if (data && data.meals && data.meals.length > 0) {
       setCountryCode(getCountryCode(data.meals[0].strArea));
@@ -101,18 +108,23 @@ export default function MealDetail({ route }) {
             height: (deviceHeight / 3) * 2,
           }}
         />
-        <TouchableOpacity style={{ position: "absolute", top: 50, right: 20 }}>
-          <View
-            style={{
-              backgroundColor: "#fff",
-              padding: 10,
-              borderRadius: 50,
-              elevation: 5,
-            }}
-          >
-            <Icon name="heart" size={30} color="#E0E0E0" />
-          </View>
-        </TouchableOpacity>
+        <View
+          style={{
+            position: "absolute",
+            top: 50,
+            right: 10,
+            backgroundColor: "#fff",
+            padding: 8,
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: 50,
+            elevation: 5,
+          }}
+        >
+          <TouchableOpacity style={{}} onPress={handleLike}>
+            <Icon name="heart" size={30} color={liked ? "red" : "#E0E0E0"} />
+          </TouchableOpacity>
+        </View>
         <View
           style={{
             // position: "absolute",
