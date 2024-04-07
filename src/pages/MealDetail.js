@@ -53,7 +53,7 @@ export default function MealDetail({ route }) {
         key={index}
         style={{
           padding: 5,
-          backgroundColor: "#fff",
+          backgroundColor: "#FDFDFD",
           borderRadius: 10,
           width: 100,
           elevation: 3,
