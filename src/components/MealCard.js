@@ -15,7 +15,6 @@ export default function MealCard({ meal, navigateToDetail }) {
 
   const handleLike = () => {
     setLiked(!liked);
-    console.log(liked);
   };
   return (
     <Pressable onPress={navigateToDetail}>
