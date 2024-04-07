@@ -85,6 +85,8 @@ export default function MealCard({ meal, navigateToDetail }) {
             position: "absolute",
             padding: 10,
             borderRadius: 10,
+            borderTopLeftRadius: 20,
+            borderTopRightRadius: 20,
             width: "100%",
             bottom: -10,
             paddingVertical: 5,
