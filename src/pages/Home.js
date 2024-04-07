@@ -21,6 +21,10 @@ export default function Home({ navigation }) {
     navigation.navigate("MealList", { categoryName });
   };
 
+  const navigateToMealDetail = (idMeal) => {
+    navigation.navigate("MealDetail", { idMeal });
+  };
+
   if (loading) {
     return (
       <View
@@ -102,7 +106,12 @@ export default function Home({ navigation }) {
         {randomMealLoading ? (
           <ActivityIndicator size="large" color="#0000ff" />
         ) : (
-          <RandomMealCard meal={randomMealData.meals[0]} />
+          <RandomMealCard
+            meal={randomMealData.meals[0]}
+            navigateToDetail={() =>
+              navigateToMealDetail(randomMealData.meals[0].idMeal)
+            }
+          />
         )}
       </View>
     </View>
