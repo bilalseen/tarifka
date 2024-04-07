@@ -161,26 +161,6 @@ export default function MealDetail({ route }) {
               )}
               horizontal={true}
             />
-            {/* {mealTags.map((tag, index) => (
-              <Text
-                key={index}
-                style={{
-                  padding: 5,
-                  fontSize: 16,
-                  fontWeight: "bold",
-                  color: "#FFA500",
-                  backgroundColor: "#fff",
-                  borderRadius: 10,
-                  width: 100,
-                  textAlign: "center",
-                  elevation: 3,
-                  borderColor: "#fff",
-                  borderWidth: 1,
-                }}
-              >
-                {tag}
-              </Text>
-            ))} */}
           </View>
         ) : null}
         <Text style={{ fontSize: 26, fontWeight: "bold", color: "#545F5A" }}>
