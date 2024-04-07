@@ -47,6 +47,34 @@ export default function MealDetail({ route }) {
       setStrInstructions(data.meals[0].strInstructions);
     }
   }, [data]);
+  const RenderItem = ({ item, index }) => {
+    return (
+      <View
+        key={index}
+        style={{
+          padding: 5,
+          backgroundColor: "#fff",
+          borderRadius: 10,
+          width: 100,
+          elevation: 3,
+          borderColor: "#fff",
+          borderWidth: 1,
+          margin: 5,
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 16,
+            fontWeight: "bold",
+            color: "#FFA500",
+            textAlign: "center",
+          }}
+        >
+          {item}
+        </Text>
+      </View>
+    );
+  };
 
   if (loading) {
     return (
@@ -95,6 +123,7 @@ export default function MealDetail({ route }) {
           borderTopLeftRadius: 30,
           borderTopRightRadius: 30,
           gap: 10,
+          elevation: 5,
         }}
       >
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
@@ -103,7 +132,7 @@ export default function MealDetail({ route }) {
               fontSize: 20,
               fontWeight: "bold",
               color: "#545F5A",
-              maxWidth: deviceWidth - 200,
+              maxWidth: deviceWidth - 100,
             }}
           >
             {data.meals[0].strMeal}
@@ -128,27 +157,9 @@ export default function MealDetail({ route }) {
             <FlatList
               data={mealTags}
               renderItem={({ item, index }) => (
-                <Text
-                  key={index}
-                  style={{
-                    padding: 5,
-                    fontSize: 16,
-                    fontWeight: "bold",
-                    color: "#FFA500",
-                    backgroundColor: "#fff",
-                    borderRadius: 10,
-                    width: 100,
-                    textAlign: "center",
-                    elevation: 3,
-                    borderColor: "#fff",
-                    borderWidth: 1,
-                    margin: 5,
-                  }}
-                >
-                  {item}
-                </Text>
+                <RenderItem item={item} index={index} />
               )}
-              horizontal
+              horizontal={true}
             />
             {/* {mealTags.map((tag, index) => (
               <Text
