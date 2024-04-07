@@ -93,93 +93,97 @@ export default function MealDetail({ route }) {
 
   return (
     <SafeAreaView style={{ flex: 1, alignItems: "center" }}>
-      <Image
-        source={{ uri: data.meals[0].strMealThumb }}
-        style={{
-          width: deviceWidth,
-          height: (deviceHeight / 3) * 2,
-        }}
-      />
-      <TouchableOpacity style={{ position: "absolute", top: 50, right: 20 }}>
+      <ScrollView>
+        <Image
+          source={{ uri: data.meals[0].strMealThumb }}
+          style={{
+            width: deviceWidth,
+            height: (deviceHeight / 3) * 2,
+          }}
+        />
+        <TouchableOpacity style={{ position: "absolute", top: 50, right: 20 }}>
+          <View
+            style={{
+              backgroundColor: "#fff",
+              padding: 10,
+              borderRadius: 50,
+              elevation: 5,
+            }}
+          >
+            <Icon name="heart" size={30} color="#E0E0E0" />
+          </View>
+        </TouchableOpacity>
         <View
           style={{
+            // position: "absolute",
+            // top: deviceHeight / 2,
+            // width: deviceWidth,
             backgroundColor: "#fff",
-            padding: 10,
-            borderRadius: 50,
+            padding: 20,
+            paddingTop: 40,
+            borderTopLeftRadius: 30,
+            borderTopRightRadius: 30,
+            gap: 10,
             elevation: 5,
           }}
         >
-          <Icon name="heart" size={30} color="#E0E0E0" />
-        </View>
-      </TouchableOpacity>
-      <View
-        style={{
-          position: "absolute",
-          top: deviceHeight / 2,
-          width: deviceWidth,
-          backgroundColor: "#fff",
-          padding: 20,
-          paddingTop: 40,
-          borderTopLeftRadius: 30,
-          borderTopRightRadius: 30,
-          gap: 10,
-          elevation: 5,
-        }}
-      >
-        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-          <Text
-            style={{
-              fontSize: 20,
-              fontWeight: "bold",
-              color: "#545F5A",
-              maxWidth: deviceWidth - 100,
-            }}
-          >
-            {data.meals[0].strMeal}
-          </Text>
           <View
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              width: 40,
-              height: 25,
-              overflow: "hidden",
-              elevation: 5,
-              borderRadius: 5,
-            }}
+            style={{ flexDirection: "row", justifyContent: "space-between" }}
           >
-            <CountryFlag isoCode={countryCode} size={25} />
+            <Text
+              style={{
+                fontSize: 20,
+                fontWeight: "bold",
+                color: "#545F5A",
+                maxWidth: deviceWidth - 100,
+              }}
+            >
+              {data.meals[0].strMeal}
+            </Text>
+            <View
+              style={{
+                alignItems: "center",
+                justifyContent: "center",
+                width: 40,
+                height: 25,
+                overflow: "hidden",
+                elevation: 5,
+                borderRadius: 5,
+              }}
+            >
+              <CountryFlag isoCode={countryCode} size={25} />
+            </View>
           </View>
-        </View>
 
-        {mealTags.length > 0 ? (
-          <View style={{ flexDirection: "row", gap: 10 }}>
-            <FlatList
-              data={mealTags}
-              renderItem={({ item, index }) => (
-                <RenderItem item={item} index={index} />
-              )}
-              horizontal={true}
-            />
-          </View>
-        ) : null}
-        <Text style={{ fontSize: 26, fontWeight: "bold", color: "#545F5A" }}>
-          About Recipe
-        </Text>
-        {strInstructions.split("\n").map((instruction, index) => (
-          <Text
-            key={index}
-            style={{
-              fontSize: 16,
-              color: "#545F5A",
-              textAlign: "justify",
-              lineHeight: 25,
-            }}
-          >
-            {instruction}
+          {mealTags.length > 0 ? (
+            <View style={{ flexDirection: "row", gap: 10 }}>
+              <FlatList
+                data={mealTags}
+                renderItem={({ item, index }) => (
+                  <RenderItem item={item} index={index} />
+                )}
+                horizontal={true}
+              />
+            </View>
+          ) : null}
+          <Text style={{ fontSize: 26, fontWeight: "bold", color: "#545F5A" }}>
+            About Recipe
           </Text>
-        ))}
-      </View>
+          {strInstructions.split("\n").map((instruction, index) => (
+            <Text
+              key={index}
+              style={{
+                fontSize: 16,
+                color: "#545F5A",
+                textAlign: "justify",
+                lineHeight: 25,
+              }}
+            >
+              {instruction}
+            </Text>
+          ))}
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
