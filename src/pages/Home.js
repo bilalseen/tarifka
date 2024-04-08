@@ -1,10 +1,17 @@
 import React from "react";
-import { View, Text, ActivityIndicator, FlatList } from "react-native";
+import {
+  View,
+  Text,
+  ActivityIndicator,
+  FlatList,
+  ScrollView,
+} from "react-native";
 import CategoryCard from "../components/CategoryCard";
 import { useFetch } from "../hooks/useFetch/useFetch";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import AntDesignIcons from "react-native-vector-icons/AntDesign";
 import RandomMealCard from "../components/RandomMealCard";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Home({ navigation }) {
   const { data, error, loading } = useFetch(
@@ -42,78 +49,95 @@ export default function Home({ navigation }) {
   }
 
   return (
-    <View
+    <SafeAreaView
       style={{
         flex: 1,
         backgroundColor: "#FDFDFD",
         alignItems: "center",
         justifyContent: "center",
-        paddingTop: 100,
-        gap: 20,
+        paddingTop: 50,
       }}
     >
-      <View
-        style={{
-          width: "100%",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          paddingHorizontal: 20,
-        }}
-      >
-        <Text
-          style={{
-            fontSize: 26,
-            fontWeight: "bold",
-            color: "#545F5A",
-            maxWidth: "60%",
-          }}
-        >
-          Looking for your favourite meal.
-        </Text>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View
           style={{
+            width: "100%",
             flexDirection: "row",
             alignItems: "center",
-            justifyContent: "center",
-            gap: 10,
+            justifyContent: "space-between",
+            paddingHorizontal: 20,
           }}
         >
-          <Ionicons name="notifications-outline" size={30} color="#000" />
-          <AntDesignIcons name="search1" size={30} color="#000" />
+          <Text
+            style={{
+              fontSize: 26,
+              fontWeight: "bold",
+              color: "#545F5A",
+              maxWidth: "60%",
+            }}
+          >
+            Looking for your favourite meal.
+          </Text>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 10,
+            }}
+          >
+            <Ionicons name="notifications-outline" size={30} color="#000" />
+            <AntDesignIcons name="search1" size={30} color="#000" />
+          </View>
         </View>
-      </View>
-      <View
-        style={{
-          height: 200,
-          paddingBottom: 10,
-        }}
-      >
-        <FlatList
-          data={data.categories}
-          renderItem={({ item }) => (
-            <CategoryCard
-              category={item}
-              navigateToMeals={() => handleMealList(item.strCategory)}
-            />
-          )}
-          keyExtractor={(item) => item.idCategory.toString()} // Ensure key is a string
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-        />
-      </View>
-      <View>
+        <View
+          style={{
+            height: 200,
+            paddingVertical: 20,
+          }}
+        >
+          <FlatList
+            data={data.categories}
+            renderItem={({ item }) => (
+              <CategoryCard
+                category={item}
+                navigateToMeals={() => handleMealList(item.strCategory)}
+              />
+            )}
+            keyExtractor={(item) => item.idCategory.toString()} // Ensure key is a string
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+          />
+        </View>
         {randomMealLoading ? (
           <ActivityIndicator size="large" color="#0000ff" />
         ) : (
-          <RandomMealCard
-            meal={randomMealData.meals[0]}
-            navigateToDetail={() =>
-              navigateToMealDetail(randomMealData.meals[0].idMeal)
-            }
-          />
+          <View>
+            <Text
+              style={{
+                fontSize: 26,
+                fontWeight: "bold",
+                color: "#545F5A",
+                paddingHorizontal: 20,
+              }}
+            >
+              Meal of the day
+            </Text>
+            <View
+              style={{
+                alignItems: "center",
+              }}
+            >
+              <RandomMealCard
+                meal={randomMealData.meals[0]}
+                navigateToDetail={() =>
+                  navigateToMealDetail(randomMealData.meals[0].idMeal)
+                }
+              />
+            </View>
+          </View>
         )}
-      </View>
-    </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
