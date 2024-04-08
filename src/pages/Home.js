@@ -12,6 +12,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import AntDesignIcons from "react-native-vector-icons/AntDesign";
 import RandomMealCard from "../components/RandomMealCard";
 import { SafeAreaView } from "react-native-safe-area-context";
+import LottieView from "lottie-react-native";
 
 export default function Home({ navigation }) {
   const { data, error, loading } = useFetch(
@@ -43,7 +44,12 @@ export default function Home({ navigation }) {
           paddingTop: 20,
         }}
       >
-        <ActivityIndicator size="large" color="#0000ff" />
+        <LottieView
+          source={require("../../assets/animations/loading.json")}
+          style={{ width: 400, height: 400 }}
+          autoPlay
+          loop
+        />
       </View>
     );
   }
