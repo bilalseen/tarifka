@@ -1,0 +1,59 @@
+{
+  "chefs": [
+    {
+      "id": 1,
+      "name": "Ethan Campbell",
+      "imageSrc": "https://foodie.sysco.com/wp-content/uploads/2019/07/MarcusMeansChefProfile_800x850.jpg",
+      "rating": 4
+    },
+    {
+      "id": 2,
+
+      "name": "Isabella Taylor",
+      "imageSrc": "https://img.freepik.com/premium-photo/female-chef-photography-portrait-kitchen_1028292-470.jpg",
+      "rating": 5
+    },
+    {
+      "id": 3,
+      "name": "Liam Parker",
+      "imageSrc": "https://www.bucuti.com/storage/app/uploads/public/64a/e91/cb9/64ae91cb9be04720467824.jpg",
+      "rating": 4
+    },
+    {
+      "id": 4,
+      "name": "Sophia Carter",
+      "imageSrc": "https://media.istockphoto.com/id/1142230160/photo/beautiful-chef-working-in-a-kitchen-at-a-restaurant.jpg?s=612x612&w=0&k=20&c=a_e524ohK5mfy8Ef2QyeENKQHShv7z6vv-ZztCUCeCc=",
+      "rating": 4
+    },
+    {
+      "id": 5,
+      "name": "Mason Roberts",
+      "imageSrc": "https://chefin.com.au/wp-content/uploads/2021/02/chef-hemant-dadlani-profile-1.jpg",
+      "rating": 4
+    },
+    {
+      "id": 6,
+      "name": "Noah Edwards",
+      "imageSrc": "https://americanakitchenandbar.com/wp-content/uploads/2022/07/Chef-Eric-Thomas-AKB-min.jpg",
+      "rating": 5
+    },
+    {
+      "id": 7,
+      "name": "Emma Johnson",
+      "imageSrc": "https://districtfray.com/wp-content/uploads/2023/03/Ria-Montes-Headshot1-1.jpg",
+      "rating": 4
+    },
+    {
+      "id": 8,
+      "name": "Ava Martinez",
+      "imageSrc": "https://cdn.i-scmp.com/sites/default/files/styles/768x768/public/d8/images/canvas/2024/02/01/709ade8a-312a-4928-b805-3a070eaf491a_837c4a18.jpg?itok=vnmXFYsq&v=1706775450",
+      "rating": 5
+    },
+    {
+      "id": 9,
+      "name": "James Foster",
+      "imageSrc": "https://www.hoteliermiddleeast.com/cloud/2021/09/02/Chef-Ahmad-Kasdi-Mohd-Dahari.jpg",
+      "rating": 4
+    }
+  ]
+}
