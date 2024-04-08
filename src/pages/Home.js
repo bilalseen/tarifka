@@ -64,6 +64,7 @@ export default function Home({ navigation }) {
         alignItems: "center",
         justifyContent: "center",
         paddingTop: 50,
+        paddingHorizontal: 10,
       }}
     >
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -73,7 +74,6 @@ export default function Home({ navigation }) {
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "space-between",
-            paddingHorizontal: 20,
           }}
         >
           <Text
@@ -98,76 +98,79 @@ export default function Home({ navigation }) {
             <AntDesignIcons name="search1" size={30} color="#000" />
           </View>
         </View>
-        <View
-          style={{
-            height: 200,
-            paddingVertical: 20,
-          }}
-        >
-          <FlatList
-            data={data.categories}
-            renderItem={({ item }) => (
-              <CategoryCard
-                category={item}
-                navigateToMeals={() => handleMealList(item.strCategory)}
-              />
-            )}
-            keyExtractor={(item) => item.idCategory.toString()} // Ensure key is a string
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-          />
-        </View>
-        {randomMealLoading ? (
-          <ActivityIndicator size="large" color="#0000ff" />
-        ) : (
-          <View style={{ paddingVertical: 20 }}>
+        <View style={{ gap: 30, marginTop: 40 }}>
+          <View>
             <Text
               style={{
                 fontSize: 26,
                 fontWeight: "bold",
                 color: "#545F5A",
-                paddingHorizontal: 20,
               }}
             >
-              Meal of the day
+              Categories
             </Text>
-            <View
-              style={{
-                alignItems: "center",
-              }}
-            >
-              <RandomMealCard
-                meal={randomMealData.meals[0]}
-                navigateToDetail={() =>
-                  navigateToMealDetail(randomMealData.meals[0].idMeal)
-                }
-              />
-            </View>
+            <FlatList
+              data={data.categories}
+              renderItem={({ item }) => (
+                <CategoryCard
+                  category={item}
+                  navigateToMeals={() => handleMealList(item.strCategory)}
+                />
+              )}
+              keyExtractor={(item) => item.idCategory.toString()} // Ensure key is a string
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+            />
           </View>
-        )}
-        <View
-          style={{
-            paddingVertical: 20,
-            paddingHorizontal: 10,
-            gap: 20,
-          }}
-        >
-          <Text
+          {randomMealLoading ? (
+            <ActivityIndicator size="large" color="#0000ff" />
+          ) : (
+            <View style={{ gap: 10 }}>
+              <Text
+                style={{
+                  fontSize: 26,
+                  fontWeight: "bold",
+                  color: "#545F5A",
+                }}
+              >
+                Meal of the day
+              </Text>
+              <View
+                style={{
+                  alignItems: "center",
+                }}
+              >
+                <RandomMealCard
+                  meal={randomMealData.meals[0]}
+                  navigateToDetail={() =>
+                    navigateToMealDetail(randomMealData.meals[0].idMeal)
+                  }
+                />
+              </View>
+            </View>
+          )}
+          <View
             style={{
-              fontSize: 26,
-              fontWeight: "bold",
-              color: "#545F5A",
+              gap: 20,
             }}
           >
-            The most popular chefs
-          </Text>
-          <FlatList
-            data={chefData.chefs}
-            renderItem={({ item }) => <ChefCard item={item} />}
-            keyExtractor={(item) => item.name} // Her öğenin benzersiz bir anahtarı olduğunu varsayalım
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-          />
+            <Text
+              style={{
+                fontSize: 26,
+                fontWeight: "bold",
+                color: "#545F5A",
+              }}
+            >
+              The most popular chefs
+            </Text>
+            <FlatList
+              data={chefData.chefs}
+              renderItem={({ item }) => <ChefCard item={item} />}
+              keyExtractor={(item) => item.name} // Her öğenin benzersiz bir anahtarı olduğunu varsayalım
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+            />
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
