@@ -24,6 +24,8 @@ export default function RandomMealCard({ meal, navigateToDetail }) {
     <Pressable onPress={navigateToDetail}>
       <View
         style={{
+          width: (Dimensions.get("window").width / 10) * 9,
+          height: Dimensions.get("window").height / 3,
           backgroundColor: "#fff",
           alignItems: "center",
           justifyContent: "center",
