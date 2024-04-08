@@ -29,7 +29,6 @@ export default function RandomMealCard({ meal, navigateToDetail }) {
           backgroundColor: "#fff",
           alignItems: "center",
           justifyContent: "center",
-          margin: 15,
           borderRadius: 10,
           elevation: 5,
         }}
