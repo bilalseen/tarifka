@@ -26,6 +26,7 @@ export default function MealCard({ meal, navigateToDetail }) {
           justifyContent: "center",
           margin: 15,
           borderRadius: 10,
+          elevation: 5,
         }}
       >
         <Image
@@ -89,8 +90,9 @@ export default function MealCard({ meal, navigateToDetail }) {
             width: "100%",
             bottom: -10,
             paddingVertical: 5,
-            backgroundColor: "rgba(213, 213, 213, 1)",
+            backgroundColor: "#fff",
             gap: 5,
+            elevation: 5,
           }}
         >
           <View
