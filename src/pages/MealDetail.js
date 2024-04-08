@@ -181,6 +181,7 @@ export default function MealDetail({ route }) {
                   <RenderItem item={item} index={index} />
                 )}
                 horizontal={true}
+                showsHorizontalScrollIndicator={false}
               />
             </View>
           ) : null}
