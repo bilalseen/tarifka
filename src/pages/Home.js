@@ -13,6 +13,8 @@ import AntDesignIcons from "react-native-vector-icons/AntDesign";
 import RandomMealCard from "../components/RandomMealCard";
 import { SafeAreaView } from "react-native-safe-area-context";
 import LottieView from "lottie-react-native";
+import ChefCard from "../components/ChefCard";
+import chefData from "../data/chef_data.json";
 
 export default function Home({ navigation }) {
   const { data, error, loading } = useFetch(
@@ -118,7 +120,7 @@ export default function Home({ navigation }) {
         {randomMealLoading ? (
           <ActivityIndicator size="large" color="#0000ff" />
         ) : (
-          <View>
+          <View style={{ paddingVertical: 20 }}>
             <Text
               style={{
                 fontSize: 26,
@@ -143,6 +145,30 @@ export default function Home({ navigation }) {
             </View>
           </View>
         )}
+        <View
+          style={{
+            paddingVertical: 20,
+            paddingHorizontal: 10,
+            gap: 20,
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 26,
+              fontWeight: "bold",
+              color: "#545F5A",
+            }}
+          >
+            The most popular chefs
+          </Text>
+          <FlatList
+            data={chefData.chefs}
+            renderItem={({ item }) => <ChefCard item={item} />}
+            keyExtractor={(item) => item.name} // Her öğenin benzersiz bir anahtarı olduğunu varsayalım
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+          />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
