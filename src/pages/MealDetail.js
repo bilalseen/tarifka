@@ -13,6 +13,7 @@ import { useFetch } from "../hooks/useFetch/useFetch";
 import Icon from "react-native-vector-icons/FontAwesome";
 import CountryFlag from "react-native-country-flag";
 import getCountryCode from "../components/functions/CountryCode";
+import LottieView from "lottie-react-native";
 
 export default function MealDetail({ route }) {
   const { idMeal } = route.params;
@@ -93,7 +94,12 @@ export default function MealDetail({ route }) {
           height: deviceHeight,
         }}
       >
-        <Text>Loading...</Text>
+        <LottieView
+          source={require("../../assets/animations/loading.json")}
+          style={{ width: 400, height: 400 }}
+          autoPlay
+          loop
+        />
       </View>
     );
   }
