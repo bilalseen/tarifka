@@ -20,7 +20,6 @@ export default function ChefCard({ item }) {
           height: width / 3,
           resizeMode: "cover",
           borderRadius: 10,
-          elevation: 5,
         }}
       />
       <View
