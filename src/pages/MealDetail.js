@@ -8,6 +8,7 @@ import {
   ScrollView,
   SafeAreaView,
   FlatList,
+  Linking,
 } from "react-native";
 import { useFetch } from "../hooks/useFetch/useFetch";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -114,6 +115,7 @@ export default function MealDetail({ route }) {
             height: (deviceHeight / 3) * 2,
           }}
         />
+
         <View
           style={{
             position: "absolute",
@@ -201,6 +203,40 @@ export default function MealDetail({ route }) {
               {instruction}
             </Text>
           ))}
+          <View
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              marginVertical: 10,
+            }}
+          >
+            <TouchableOpacity
+              style={{
+                backgroundColor: "red",
+                padding: 8,
+                alignItems: "center",
+                justifyContent: "center",
+                borderRadius: 5,
+                elevation: 5,
+                width: (deviceWidth / 5) * 4,
+                height: 50,
+              }}
+              onPress={() =>
+                Linking.openURL(data.meals[0].strYoutube).catch((err) =>
+                  console.error("Couldn't load page", err)
+                )
+              }
+            >
+              <Text
+                style={{
+                  color: "#fff",
+                  fontWeight: "bold",
+                }}
+              >
+                Watch on Youtube
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
