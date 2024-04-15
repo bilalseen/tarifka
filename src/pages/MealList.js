@@ -1,4 +1,4 @@
-import { View, FlatList, Dimensions } from "react-native";
+import { View, FlatList, Dimensions, TextInput, Text } from "react-native";
 import React from "react";
 import { useFetch } from "../hooks/useFetch/useFetch";
 import MealCard from "../components/MealCard";
@@ -9,6 +9,25 @@ const MealList = ({ route, navigation }) => {
 
   const deviceWidth = Dimensions.get("window").width;
   const deviceHeight = Dimensions.get("window").height;
+
+  const [searchText, setSearchText] = React.useState("");
+
+  const [filteredData, setFilteredData] = React.useState([]);
+
+  const onChangeText = (text) => {
+    setSearchText(text);
+    handleFilteredData(data.meals);
+  };
+
+  const handleFilteredData = (data) => {
+    if (searchText === "") {
+      return data;
+    }
+
+    return data.filter((item) =>
+      item.strMeal.toLowerCase().includes(searchText.toLowerCase())
+    );
+  };
 
   const { data, error, loading } = useFetch(
     `https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName}`
@@ -47,8 +66,33 @@ const MealList = ({ route, navigation }) => {
         justifyContent: "center",
       }}
     >
+      <View style={{ marginTop: 100, gap: 20 }}>
+        <TextInput
+          style={{
+            height: deviceWidth / 10,
+            width: deviceWidth - 50,
+            borderColor: "gray",
+            borderWidth: 1,
+            borderRadius: 10,
+            backgroundColor: "#fff",
+            padding: 10,
+          }}
+          onChangeText={(text) => onChangeText(text)}
+          placeholder="Search for a meal..."
+        />
+        <Text
+          style={{
+            fontSize: 22,
+            fontWeight: "bold",
+            color: "#545F5A",
+            textAlign: "center",
+          }}
+        >
+          {categoryName}
+        </Text>
+      </View>
       <FlatList
-        data={data.meals}
+        data={searchText === "" ? data.meals : handleFilteredData(data.meals)}
         renderItem={({ item }) => (
           <MealCard
             meal={item}
