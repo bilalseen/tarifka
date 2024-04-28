@@ -15,6 +15,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import CountryFlag from "react-native-country-flag";
 import getCountryCode from "../components/functions/CountryCode";
 import LottieView from "lottie-react-native";
+import IngredientItem from "../components/IngredientItem";
 
 export default function MealDetail({ route }) {
   const { idMeal } = route.params;
@@ -37,7 +38,6 @@ export default function MealDetail({ route }) {
 
   const handleLike = () => {
     setLiked(!liked);
-    console.log(liked);
   };
 
   useEffect(() => {
@@ -56,6 +56,24 @@ export default function MealDetail({ route }) {
       setStrInstructions(data.meals[0].strInstructions);
     }
   }, [data]);
+
+  const ingredients = [];
+  const measures = [];
+
+  for (let i = 1; i <= 20; i++) {
+    const ingredient = mealData[`strIngredient${i}`];
+    const measure = mealData[`strMeasure${i}`];
+
+    if (ingredient) {
+      ingredients.push(ingredient);
+      if (measure) {
+        measures.push(measure);
+      }
+    } else {
+      break; // Malzeme bulunamazsa döngüyü kır
+    }
+  }
+
   const RenderItem = ({ item, index }) => {
     return (
       <View
@@ -135,9 +153,9 @@ export default function MealDetail({ route }) {
         </View>
         <View
           style={{
-            // position: "absolute",
-            // top: deviceHeight / 2,
-            // width: deviceWidth,
+            position: "absolute",
+            top: deviceHeight / 2,
+            width: deviceWidth,
             backgroundColor: "#fff",
             padding: 20,
             paddingTop: 40,
@@ -202,6 +220,16 @@ export default function MealDetail({ route }) {
             >
               {instruction}
             </Text>
+          ))}
+          <Text style={{ fontSize: 26, fontWeight: "bold", color: "#545F5A" }}>
+            Ingredients
+          </Text>
+          {ingredients.map((ingredient, index) => (
+            <IngredientItem
+              key={index}
+              ingredient={ingredient}
+              measure={measures[index]}
+            />
           ))}
           <View
             style={{
