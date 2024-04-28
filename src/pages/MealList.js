@@ -64,6 +64,7 @@ const MealList = ({ route, navigation }) => {
         backgroundColor: "#fff",
         alignItems: "center",
         justifyContent: "center",
+        gap: 20,
       }}
     >
       <View style={{ marginTop: 100, gap: 20 }}>
@@ -80,16 +81,6 @@ const MealList = ({ route, navigation }) => {
           onChangeText={(text) => onChangeText(text)}
           placeholder="Search for a meal..."
         />
-        <Text
-          style={{
-            fontSize: 22,
-            fontWeight: "bold",
-            color: "#545F5A",
-            textAlign: "center",
-          }}
-        >
-          {categoryName}
-        </Text>
       </View>
       <FlatList
         data={searchText === "" ? data.meals : handleFilteredData(data.meals)}
