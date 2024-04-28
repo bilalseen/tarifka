@@ -153,9 +153,9 @@ export default function MealDetail({ route }) {
         </View>
         <View
           style={{
-            position: "absolute",
-            top: deviceHeight / 2,
-            width: deviceWidth,
+            // position: "absolute",
+            // top: deviceHeight / 2,
+            // width: deviceWidth,
             backgroundColor: "#fff",
             padding: 20,
             paddingTop: 40,
