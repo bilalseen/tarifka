@@ -25,7 +25,7 @@ This project is the assignment for the "Tarifka" lesson of the [patika.dev](http
 
 ### To set up this project locally, first clone this repository.
 
-1. Bu projeyi yerel makinenize klonlayın:
+1. Clone this project
 
     ```bash
     git clone https://github.com/bilalseen/tarifka.git
