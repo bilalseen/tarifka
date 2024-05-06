@@ -35,6 +35,11 @@ export default function Home({ navigation }) {
     navigation.navigate("MealDetail", { idMeal });
   };
 
+  const navigateToChefDetail = (chefId) => {
+    console.log(chefId);
+    navigation.navigate("ChefDetail", { chefId });
+  };
+
   if (loading) {
     return (
       <View
@@ -165,7 +170,12 @@ export default function Home({ navigation }) {
             </Text>
             <FlatList
               data={chefData.chefs}
-              renderItem={({ item }) => <ChefCard item={item} />}
+              renderItem={({ item }) => (
+                <ChefCard
+                  item={item}
+                  navigateToChef={() => navigateToChefDetail(item.id)}
+                />
+              )}
               keyExtractor={(item) => item.name} // Her öğenin benzersiz bir anahtarı olduğunu varsayalım
               horizontal={true}
               showsHorizontalScrollIndicator={false}
