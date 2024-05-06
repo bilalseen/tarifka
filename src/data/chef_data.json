@@ -4,56 +4,100 @@
       "id": 1,
       "name": "Ethan Campbell",
       "imageSrc": "https://foodie.sysco.com/wp-content/uploads/2019/07/MarcusMeansChefProfile_800x850.jpg",
-      "rating": 4
+      "rating": 4,
+      "countryCode": "US",
+      "bio": "Hello! I'm Ethan Campbell. I enjoy creating delicious meals and satisfying people's taste buds.",
+      "specialties": ["Grilling", "Seafood"]
     },
     {
       "id": 2,
-
       "name": "Isabella Taylor",
       "imageSrc": "https://img.freepik.com/premium-photo/female-chef-photography-portrait-kitchen_1028292-470.jpg",
-      "rating": 5
+      "rating": 5,
+      "countryCode": "GB",
+      "bio": "Hello! I'm Isabella Taylor. I'm here to prove my mastery in the art of cooking.",
+      "specialties": ["Italian Cuisine", "Desserts", "Vegan Dishes"]
     },
     {
       "id": 3,
       "name": "Liam Parker",
       "imageSrc": "https://www.bucuti.com/storage/app/uploads/public/64a/e91/cb9/64ae91cb9be04720467824.jpg",
-      "rating": 4
+      "rating": 4,
+      "countryCode": "NI",
+      "bio": "Hello! I'm Liam Parker. I love making delicious meals and I'm here to share my passion.",
+      "specialties": ["Mexican Cuisine", "Fast Food"]
     },
     {
       "id": 4,
-      "name": "Sophia Carter",
-      "imageSrc": "https://media.istockphoto.com/id/1142230160/photo/beautiful-chef-working-in-a-kitchen-at-a-restaurant.jpg?s=612x612&w=0&k=20&c=a_e524ohK5mfy8Ef2QyeENKQHShv7z6vv-ZztCUCeCc=",
-      "rating": 4
+      "name": "Arda Türkmen",
+      "imageSrc": "https://www.speakeragency.com.tr/media/lgzfqi0n/arda-turkmen575px_510px_2.jpg",
+      "rating": 5,
+      "countryCode": "TR",
+      "bio": "Hello! I'm Arda Türkmen. I'm ready to blend traditional Turkish flavors with modern twists.",
+      "specialties": ["Turkish Cuisine", "Kebabs", "Appetizers"]
     },
     {
       "id": 5,
-      "name": "Mason Roberts",
-      "imageSrc": "https://chefin.com.au/wp-content/uploads/2021/02/chef-hemant-dadlani-profile-1.jpg",
-      "rating": 4
+      "name": "Sophia Carter",
+      "imageSrc": "https://media.istockphoto.com/id/1142230160/photo/beautiful-chef-working-in-a-kitchen-at-a-restaurant.jpg?s=612x612&w=0&k=20&c=a_e524ohK5mfy8Ef2QyeENKQHShv7z6vv-ZztCUCeCc=",
+      "rating": 4,
+      "countryCode": "FR",
+      "bio": "Hello! I'm Sophia Carter. With my passion for French cuisine, I aim to surprise everyone.",
+      "specialties": ["French Cuisine", "Pastries", "Seafood"]
     },
     {
       "id": 6,
-      "name": "Noah Edwards",
-      "imageSrc": "https://americanakitchenandbar.com/wp-content/uploads/2022/07/Chef-Eric-Thomas-AKB-min.jpg",
-      "rating": 5
+      "name": "Mason Roberts",
+      "imageSrc": "https://chefin.com.au/wp-content/uploads/2021/02/chef-hemant-dadlani-profile-1.jpg",
+      "rating": 4,
+      "countryCode": "FR",
+      "bio": "Hello! I'm Mason Roberts. I aim to impress everyone with my creativity in the kitchen.",
+      "specialties": ["Vegetarian Dishes", "Asian Cuisine"]
     },
     {
       "id": 7,
-      "name": "Emma Johnson",
-      "imageSrc": "https://districtfray.com/wp-content/uploads/2023/03/Ria-Montes-Headshot1-1.jpg",
-      "rating": 4
+      "name": "Noah Edwards",
+      "imageSrc": "https://americanakitchenandbar.com/wp-content/uploads/2022/07/Chef-Eric-Thomas-AKB-min.jpg",
+      "rating": 5,
+      "countryCode": "GB",
+      "bio": "Hello! I'm Noah Edwards. I'd be delighted to share my expertise in British cuisine with you.",
+      "specialties": ["British Cuisine", "Pub Food"]
     },
     {
       "id": 8,
-      "name": "Ava Martinez",
-      "imageSrc": "https://cdn.i-scmp.com/sites/default/files/styles/768x768/public/d8/images/canvas/2024/02/01/709ade8a-312a-4928-b805-3a070eaf491a_837c4a18.jpg?itok=vnmXFYsq&v=1706775450",
-      "rating": 5
+      "name": "Refika Birgül",
+      "imageSrc": "https://glli-us.org/wp-content/uploads/2017/08/refika-portrait.jpeg",
+      "rating": 5,
+      "countryCode": "TR",
+      "bio": "Hello! I'm Refika Birgül. I'm ready to share the secrets of Turkish cuisine with you.",
+      "specialties": ["Turkish Cuisine", "Soups", "Home Cooking"]
     },
     {
       "id": 9,
+      "name": "Emma Johnson",
+      "imageSrc": "https://districtfray.com/wp-content/uploads/2023/03/Ria-Montes-Headshot1-1.jpg",
+      "rating": 4,
+      "countryCode": "ID",
+      "bio": "Hello! I'm Emma Johnson. Are you ready to discover the hidden treasures of Indonesian cuisine?",
+      "specialties": ["Indonesian Cuisine", "Spicy Dishes"]
+    },
+    {
+      "id": 10,
+      "name": "Ava Martinez",
+      "imageSrc": "https://cdn.i-scmp.com/sites/default/files/styles/768x768/public/d8/images/canvas/2024/02/01/709ade8a-312a-4928-b805-3a070eaf491a_837c4a18.jpg?itok=vnmXFYsq&v=1706775450",
+      "rating": 5,
+      "countryCode": "JP",
+      "bio": "Hello! I'm Ava Martinez. Enjoy the traditional flavors of Japan with me.",
+      "specialties": ["Japanese Cuisine", "Sushi", "Ramen"]
+    },
+    {
+      "id": 11,
       "name": "James Foster",
       "imageSrc": "https://www.hoteliermiddleeast.com/cloud/2021/09/02/Chef-Ahmad-Kasdi-Mohd-Dahari.jpg",
-      "rating": 4
+      "rating": 4,
+      "countryCode": "US",
+      "bio": "Hello! I'm James Foster. I bring a fusion of flavors to the table, blending traditional American cuisine with global influences.",
+      "specialties": ["American Cuisine", "BBQ", "Southern Comfort Food"]
     }
   ]
 }
