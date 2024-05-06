@@ -8,6 +8,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../pages/Home";
 import MealListScreen from "../pages/MealList";
 import MealDetailScreen from "../pages/MealDetail";
+import ChefDetailScreen from "../pages/ChefDetail";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +33,13 @@ function Router() {
         <Stack.Screen
           component={MealDetailScreen}
           name="MealDetail"
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          component={ChefDetailScreen}
+          name="ChefDetail"
           options={{
             headerShown: false,
           }}
