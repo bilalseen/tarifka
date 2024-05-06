@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
+import FeatherIcon from "react-native-vector-icons/Feather";
 import getCountryCode from "../components/functions/CountryCode";
 import CountryFlag from "react-native-country-flag";
 
@@ -110,7 +111,7 @@ export default function RandomMealCard({ meal, navigateToDetail }) {
             >
               {meal.strMeal}
             </Text>
-            <MaterialIcon name="online-prediction" size={30} color="#51A789" />
+            <FeatherIcon name="chevrons-up" size={30} color="#51A789" />
           </View>
           <View
             style={{
